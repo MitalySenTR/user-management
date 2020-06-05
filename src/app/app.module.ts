@@ -11,13 +11,17 @@ import { Routes, RouterModule } from '@angular/router';
 import {HttpClientModule } from '@angular/common/http';
 import { UserService } from './users/user.service';
 import { FormsModule } from '@angular/forms';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ChartsModule } from 'ng2-charts';
+import { StaticDataService } from './static-data.service';
 
 const routes : Routes = [
   {path: '', redirectTo: '/users', pathMatch: 'full'},
   {path: 'users', component: UsersComponent, children: [
+    {path: 'list', component: UserListComponent},
     {path: 'create', component: AddUserComponent},
     {path: 'search', component: SearchUserComponent},
-    {path: '', component: UserListComponent}
+    {path: '', component: DashboardComponent}
   ]
   }
 ]
@@ -28,15 +32,17 @@ const routes : Routes = [
     UsersComponent,
     UserListComponent,
     AddUserComponent,
-    SearchUserComponent
+    SearchUserComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ChartsModule
   ],
-  providers: [UserService],
+  providers: [UserService, StaticDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
