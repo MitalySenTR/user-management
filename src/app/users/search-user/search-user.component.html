@@ -1,0 +1,27 @@
+<div class="col-lg-6 offset-3">
+    <form class="form-inline" #searchForm="ngForm" (ngSubmit)="searchUser(searchForm)">
+      <input type="number" class="form-control mr-sm-2" name="id" placeholder="User ID eg. 20249" ngModel required>
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" [disabled]="searchForm.invalid">Search</button>
+    </form>
+  <br>
+  <div *ngIf="requestProcessed">
+    <div *ngIf="isDataPresent else userDoesNotExist">
+      <dl class="row">
+        <dt class="col-sm-4">User ID</dt>
+        <dd class="col-sm-8">{{user.id}}</dd>
+  
+        <dt class="col-sm-4">Name</dt>
+        <dd class="col-sm-8">{{user.name}}</dd>
+  
+        <dt class="col-sm-4">Location</dt>
+        <dd class="col-sm-8">{{user.location}}</dd>
+      </dl>
+    </div>
+  
+    <ng-template #userDoesNotExist>
+      <div class="alert alert-danger">
+        {{alertMessage}}
+      </div>
+    </ng-template>
+  </div>
+</div>
