@@ -1,17 +1,16 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { User } from './user.model';
+import { StaticDataService } from './static-data.service';
 
 @Injectable()
 export class UserService{
     baseUrl:string = 'http://localhost:8080/user';
 
-    users:User[] = [
-        // {id: 32, name: "mitaly", location: "ludhiana"},
-        // {id: 23, name: "sonia", location: "delhi"},
-        // {id: 232, name: "smriti", location: "rohtak"}
-    ];
-    constructor(private http: HttpClient){
+    users:User[];
+
+    constructor(private staticDataService: StaticDataService, private http: HttpClient){
+        this.users = staticDataService.users;
     }
 
     fetchUserById(id: number){
@@ -28,7 +27,7 @@ export class UserService{
     }
 
     fetchAllUsers(){
-        return this.http.get<User[]>(this.baseUrl);
-        // return this.users;
+        // return this.http.get<User[]>(this.baseUrl);
+        return this.users;
     }
 }
