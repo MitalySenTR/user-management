@@ -9,16 +9,16 @@ import { AddUserComponent } from './users/add-user/add-user.component';
 import { SearchUserComponent } from './users/search-user/search-user.component';
 import { Routes, RouterModule } from '@angular/router';
 import {HttpClientModule } from '@angular/common/http';
-import { UserService } from './users/user.service';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ChartsModule } from 'ng2-charts';
 import { StaticDataService } from './static-data.service';
+import { FooterComponent } from './footer/footer.component';
+import { UserService } from './user.service';
 
 const routes : Routes = [
   {path: '', redirectTo: '/users', pathMatch: 'full'},
   {path: 'users', component: UsersComponent, children: [
-    {path: 'list', component: UserListComponent},
     {path: 'create', component: AddUserComponent},
     {path: 'search', component: SearchUserComponent},
     {path: '', component: DashboardComponent}
@@ -33,7 +33,8 @@ const routes : Routes = [
     UserListComponent,
     AddUserComponent,
     SearchUserComponent,
-    DashboardComponent
+    DashboardComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

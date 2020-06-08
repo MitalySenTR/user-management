@@ -7,10 +7,12 @@ import { StaticDataService } from '../static-data.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  numUsers = 89;
+  numUsersInLastMonth = 7;
   public chartOptions = {
     responsive: true,
     legend: {
-      position: 'bottom'
+      position: 'right'
     }
   };
   public chartData = [];

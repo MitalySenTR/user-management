@@ -1,7 +1,11 @@
-<div class="col-lg-6 offset-3">
+<div class="col-lg-8 mx-auto">
     <form class="form-inline" #searchForm="ngForm" (ngSubmit)="searchUser(searchForm)">
-      <input type="number" class="form-control mr-sm-2" name="id" placeholder="User ID eg. 20249" ngModel required>
-      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" [disabled]="searchForm.invalid">Search</button>
+      <div class="input-group">
+        <input type="number" class="form-control" name="id" placeholder="User ID eg. 20249" ngModel required>
+        <div class="input-group-append">
+          <button class="btn btn-outline-primary" type="submit" [disabled]="searchForm.invalid">Search</button>
+        </div>
+      </div>
     </form>
   <br>
   <div *ngIf="requestProcessed">

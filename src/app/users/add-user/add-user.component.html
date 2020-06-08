@@ -1,4 +1,4 @@
-<div class="col-lg-6 offset-3">
+<div class="col-lg-6 mx-auto">
   <form #userForm="ngForm" (ngSubmit)="createUser(userForm)">
     <div class="form-group">
       <label for="name">Name</label>
@@ -8,7 +8,7 @@
       <label for="location">Location</label>
       <input type="text" class="form-control" name="location" placeholder="Location" ngModel required>
     </div>
-    <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">Create</button>
+    <button type="submit" class="btn btn-primary btn-block" [disabled]="!userForm.valid">Create</button>
   </form>
   <br>
   <div *ngIf="requestProcessed">

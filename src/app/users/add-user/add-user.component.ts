@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { UserService } from '../user.service';
-
+import { UserService } from 'src/app/user.service';
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
